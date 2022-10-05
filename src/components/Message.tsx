@@ -59,13 +59,15 @@ const Message = ({ owner, data }: Props) => {
             {data?.text}
           </span>
         )}
-        {data?.image && (
-          <img
-            src={data?.image}
-            alt="avatar"
-            className=" w-6/12 h-6/12 object-cover"
-          />
-        )}
+        {data?.image?.length &&
+          data?.image.map((image: string, index: number) => (
+            <img
+              key={index}
+              src={image}
+              alt="avatar"
+              className=" w-6/12 h-6/12 object-cover m-b-1"
+            />
+          ))}
       </div>
     </div>
   );
